@@ -1,0 +1,17 @@
+# the var used in call inst should not get optimized away
+# due to it being "not pure"
+
+@foo(a1: int) {
+    va1: int = id a1;
+    print va1;
+}
+
+@main() {
+    va: int = const 1; # should stay
+    print va;
+
+    vb: int = const 2; # should stay, used by a callinst
+    call @foo vb;
+
+    vc: int = const 3; # should get dce'd
+}

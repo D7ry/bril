@@ -1,0 +1,17 @@
+# test correctenss of all week1 passes
+benchmarks = '../../benchmarks/**/*.bril'
+# how to extract the performance metric from stderr
+extract = 'total_dyn_inst: (\d+)'
+
+[runs.baseline]
+pipeline = [
+  "bril2json",
+  "brili -p {args}",
+]
+
+[runs.naive_dce_pass]
+pipeline = [
+  "bril2json",
+  "bril_forge naive_dce_pass",
+  "brili -p {args}",
+]
