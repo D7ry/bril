@@ -11,9 +11,9 @@ pipeline = [
   "brili -p",
 ]
 
-[runs.naive_dce]
+[runs.local_dce]
 pipeline = [
   "bril2json",
-  "bril_forge naive_dce_pass",
+  "bril_forge local_dce_pass",
   "brili -p",
 ]
