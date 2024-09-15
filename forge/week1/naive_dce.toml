@@ -1,0 +1,19 @@
+# dce.rs::naive_dce_pass
+
+benchmarks = '../tests/naive_dce/*.bril'
+
+# how to extract the performance metric from stderr
+extract = 'total_dyn_inst: (\d+)'
+
+[runs.baseline]
+pipeline = [
+  "bril2json",
+  "brili -p",
+]
+
+[runs.naive_dce]
+pipeline = [
+  "bril2json",
+  "bril_forge naive_dce_pass",
+  "brili -p",
+]

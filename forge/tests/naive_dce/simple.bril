@@ -1,0 +1,8 @@
+@main() {
+    # nothing changes, va is used
+    va: int = const 1;
+    # vb, vc are not used and should get dce'd
+    vb: int = const 2;
+    vc: int = const 3;
+    print va;
+}

@@ -1,0 +1,5 @@
+@main() {
+    # nothing changes, va is used
+    va: int = const 1;
+    print va;
+}
